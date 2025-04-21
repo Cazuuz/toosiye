@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header id="navbar-container"></header>
+
+    <div class="px-12">
+      <form id="searchForm" class="flex items-center max-w-sm mx-auto py-3">
+        <label for="simple-search" class="sr-only">Search</label>
+        <div class="relative w-full">
+          <div
+            class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+          ></div>
+          <input
+            type="text"
+            id="searchInput"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search for professional..."
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="p-2.5 ms-2 text-sm font-medium text-white bg-green-400 rounded-lg border border-green-400 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-blue-600 dark:hover:bg-green-400 dark:focus:ring-green-800"
+        >
+          <svg
+            class="w-4 h-4"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 20"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            />
+          </svg>
+          <span class="sr-only">Search</span>
+        </button>
+      </form>
+
+      <div
+        id="professionalsContainer"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2"
+      >
+        <div
+          class="bg-white w-full rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+        >
+          <div class="flex justify-end px-4 pt-4">
+            <button
+              id="dropdownButton"
+              data-dropdown-toggle="dropdown"
+              class="hidden sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+              type="button"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-col items-center pb-10">
+            <img
+              class="mb-3 w-24 h-24 rounded-full shadow-lg"
+              src="assets/images/mechanic.png"
+              alt="cazuuz image"
+            />
+            <h3 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+              cazuuz mohamed
+            </h3>
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >plumber</span
+            >
+            <div>
+              <p class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <path
+                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                  />
+                </svg>
+                <span id="Loaction">jigjiga</span>
+              </p>
+              <p class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <path
+                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                  />
+                </svg>
+                <span id="Rating">4.3</span>
+              </p>
+            </div>
+            <div class="flex mt-4 space-x-3 lg:mt-6 w-full">
+              <a
+                href="#"
+                class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-green-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >contact</a
+              >
+              <a
+                href="#"
+                class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                >see profile</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/professionals.js"></script>
+  </body>
+</html>

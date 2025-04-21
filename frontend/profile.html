@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header id="navbar-container"></header>
+
+    <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+      <div class="p-12">
+        <div class="flex justify-center">
+          <div class="w-full">
+            <div class="rounded-lg overflow-hidden">
+              <div class="flex">
+                <div
+                  class="bg-gradient-to-r from-green-400 to-green-600 w-1/4 p-8 text-center text-white"
+                >
+                  <img
+                    id="profileImage"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s"
+                    class="rounded-full mb-6"
+                    alt="User-Profile-Image"
+                  />
+                  <h6 id="fullName" class="font-semibold text-lg">
+                    Ali Technician
+                  </h6>
+                  <p id="profession">Electrician</p>
+                </div>
+                <div class="w-3/4 p-6">
+                  <h6
+                    class="mb-4 border-b border-gray-300 font-semibold text-lg"
+                  >
+                    Information
+                  </h6>
+                  <div class="flex flex-wrap">
+                    <div class="w-1/2">
+                      <p class="mb-2 font-semibold">Email</p>
+                      <h6 id="email" class="text-gray-600">abdi@gmail.com</h6>
+                    </div>
+                    <div class="w-1/2">
+                      <p class="mb-2 font-semibold">Phone</p>
+                      <h6 id="phoneNumber" class="text-gray-600">612345678</h6>
+                    </div>
+                    <div class="w-1/2">
+                      <p class="mb-2 font-semibold">City</p>
+                      <h6 id="city" class="text-gray-600">Mogadishu</h6>
+                    </div>
+                    <div class="w-1/2">
+                      <p class="mb-2 font-semibold">Zone</p>
+                      <h6 id="zone" class="text-gray-600">Waberi</h6>
+                    </div>
+                    <div class="w-full">
+                      <p class="mb-2 font-semibold">Experience</p>
+                      <h6 id="experience" class="text-gray-600">5 Years</h6>
+                    </div>
+                    <div class="w-full">
+                      <p class="mb-2 font-semibold">Services</p>
+                      <h6 id="services" class="text-gray-600">
+                        Wiring, Light Installation, Fixing
+                      </h6>
+                    </div>
+                    <div class="w-full">
+                      <p class="mb-2 font-semibold">About</p>
+                      <h6 id="about" class="text-gray-600">
+                        I am a reliable electrician with 5 years of
+                        experience...
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="flex mt-6 space-x-4">
+                    <button
+                      class="bg-green-400 text-white px-4 py-2 rounded hover:bg-green-400"
+                    >
+                      Reveal Contact
+                    </button>
+                    <button
+                      class="border border-green-400 px-4 py-2 rounded hover:bg-green-600 hover:text-white"
+                    >
+                      Message
+                    </button>
+                  </div>
+                  <h6
+                    class="mt-10 mb-4 border-b border-gray-300 font-semibold text-lg"
+                  >
+                    Connect
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="text-xl font-bold mt-12 mb-4 text-center">Client Reviews</h2>
+    <div id="reviewsContainer" class="space-y-6 px-10"></div>
+
+    <div class="max-w-xl mx-auto px-10 mt-12">
+      <h2 class="text-lg font-bold mb-4">Leave a Review</h2>
+      <form id="reviewForm" class="space-y-4 bg-white p-6 rounded-lg shadow">
+        <div>
+          <label for="rating" class="block font-medium mb-1"
+            >Rating (1-5)</label
+          >
+          <select id="rating" required class="w-full border rounded px-3 py-2">
+            <option value="">Choose...</option>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+          </select>
+        </div>
+        <div>
+          <label for="comment" class="block font-medium mb-1">Comment</label>
+          <textarea
+            id="comment"
+            rows="4"
+            class="w-full border rounded px-3 py-2"
+            placeholder="Write your review..."
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+        >
+          Submit Review
+        </button>
+        <p id="reviewMessage" class="text-sm mt-2 text-gray-500"></p>
+      </form>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="assets/js/profile.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
