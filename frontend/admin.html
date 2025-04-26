@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard - Toosiye</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <!-- Heroicons (for SVG icons) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-gray-100 to-blue-50 min-h-screen">
+    <div class="p-4 md:p-8 max-w-6xl mx-auto">
+      <header class="flex items-center justify-between mb-8">
+        <h1
+          class="text-3xl md:text-4xl font-extrabold text-blue-800 tracking-tight flex items-center"
+        >
+          <svg
+            class="w-8 h-8 mr-2 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16 7a4 4 0 01.88 7.902A4.001 4.001 0 016 17H5a2 2 0 010-4h1a2 2 0 002-2 2 2 0 00-2-2H5a2 2 0 010-4h1a4 4 0 014-4 4 4 0 014 4z"
+            ></path>
+          </svg>
+          Admin Dashboard
+        </h1>
+        <button
+          onclick="logout()"
+          class="bg-red-100 text-red-600 px-4 py-2 rounded-lg font-medium hover:bg-red-200 transition"
+        >
+          Logout
+        </button>
+      </header>
+
+      <section id="siteStats" class="mb-8">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">
+          Site Statistics
+        </h2>
+        <div
+          id="statsContainer"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
+        ></div>
+      </section>
+
+      <section id="userList" class="bg-white shadow-xl rounded-xl p-6">
+        <h2 class="text-xl font-semibold text-gray-700 mb-6">All Users</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm">
+            <thead>
+              <tr class="bg-gray-50 text-gray-700 uppercase text-xs">
+                <th class="px-4 py-3 text-left">User</th>
+                <th class="px-4 py-3 text-left">Role</th>
+                <th class="px-4 py-3 text-left">Status</th>
+                <th class="px-4 py-3 text-left">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody" class="divide-y"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="assets/js/admin.js"></script>
+    <script>
+      function logout() {
+        localStorage.removeItem("accessToken");
+        window.location.href = "login.html";
+      }
+      // Load Feather icons after DOM
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.feather) feather.replace();
+      });
+    </script>
+  </body>
+</html>
