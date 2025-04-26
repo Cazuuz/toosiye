@@ -157,3 +157,85 @@ class MyProfessionalProfileView(RetrieveAPIView):
 
     def get_object(self):
         return ProfessionalProfile.objects.get(user=self.request.user)
+
+
+class AdminUserListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        if not request.user.is_staff:
+            return Response({"detail": "Unauthorized"}, status=403)
+
+        users = User.objects.all().values("id", "username", "role", "is_active")
+        user_list = []
+        for u in users:
+            status = "Active" if u["is_active"] else "Banned"
+            user_list.append({**u, "status": status})
+        return Response(user_list)
+
+
+class ApproveProfessionalView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, user_id):
+        if not request.user.is_staff:
+            return Response({"detail": "Unauthorized"}, status=403)
+
+        try:
+            user = User.objects.get(id=user_id)
+            profile = user.profile
+            profile.is_approved = True
+            profile.save()
+            return Response({"detail": "Professional approved."})
+        except User.DoesNotExist:
+            return Response({"detail": "User not found."}, status=404)
+
+
+class DisapproveProfessionalView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, user_id):
+        if not request.user.is_staff:
+            return Response({"detail": "Unauthorized"}, status=403)
+
+        try:
+            user = User.objects.get(id=user_id)
+            profile = user.profile
+            profile.is_approved = False
+            profile.save()
+            return Response({"detail": "Professional disapproved."})
+        except User.DoesNotExist:
+            return Response({"detail": "User not found."}, status=404)
+
+
+class BanUserView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, user_id):
+        if not request.user.is_staff:
+            return Response({"detail": "Unauthorized"}, status=403)
+
+        try:
+            user = User.objects.get(id=user_id)
+            user.is_active = False
+            user.save()
+            return Response({"detail": "User banned successfully."})
+        except User.DoesNotExist:
+            return Response({"detail": "User not found."}, status=404)
+
+
+class SiteStatsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        if not request.user.is_staff:
+            return Response({"detail": "Unauthorized"}, status=403)
+
+        data = {
+            "Total Users": User.objects.count(),
+            "Active Users": User.objects.filter(is_active=True).count(),
+            "Banned Users": User.objects.filter(is_active=False).count(),
+            "Professionals": ProfessionalProfile.objects.count(),
+            "Reviews": Review.objects.count(),
+        }
+        return Response(data)
